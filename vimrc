@@ -113,25 +113,30 @@ endif
 
 call plug#begin('~/.vim/bundle')
 
+" Language specifics
 Plug 'nsf/gocode', {'rtp': 'vim/'}
-
+Plug 'fatih/vim-go'
 Plug 'davidhalter/jedi-vim'
-" Settings for Jedi-vim
 let g:jedi#use_tabs_not_buffers = 0
 
+Plug 'chrisbra/vim-kconfig' " Prettier kernel config files.
+Plug 'vivien/vim-linux-coding-style'  " Linux kernel coding style.
+" Type `:LinuxCodingStyle` to enable it on-demand.
+
+Plug 'gentoo/gentoo-syntax'
+
+" Generally useful plugins
 Plug 'scrooloose/nerdtree'
 nmap nd :NERDTree<cr>
 
 Plug 'tpope/vim-surround'
+Plug 'preservim/nerdcommenter'
+Plug 'vim-scripts/tcd.vim'
 
 Plug 'scrooloose/syntastic'
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
-
-Plug 'fatih/vim-go'
-
-Plug 'chrisbra/vim-kconfig' " Prettier kernel config files.
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
