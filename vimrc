@@ -1,0 +1,146 @@
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" General configurations.
+"
+syntax on
+colorscheme delek
+set number
+set mouse=a
+set pastetoggle=<F9>
+set cursorline
+
+set exrc  " Enable per Project/Directory .vimrc
+set secure  " Disable unsafe commands in your project-specific .vimrc files
+
+" Save your pinky from having to press ESC to exit insert mode.
+imap jk <Esc>
+
+" Find / search settings
+set incsearch
+set hlsearch
+
+" Status Bar(bottom) Settings
+set laststatus=2
+set ruler
+
+" Command Line Settings
+set showcmd
+set showmode
+
+" No tab
+set expandtab
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
+set sw=2
+
+" Show a vertical red bar at the margin.
+set tw=80
+set colorcolumn=+1,+2
+highlight ColorColumn ctermbg=red guibg=gray9
+
+" Folding
+set foldmethod=syntax
+set foldlevel=100
+set foldcolumn=3
+
+" Spell check on for Markdowns, git commits and text files
+autocmd FileType markdown,gitcommit,text setlocal spell spelllang=en_us
+
+" Linux Kernel coding style
+let g:linuxsty_patterns = [ "/linux/", "/kernel/" , "/vboot_reference/", "/depthcharge/", "coreboot"]
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Mappings
+"
+let mapleader=","
+nmap ; :
+
+" Change working directory to that of the current file.
+nnoremap ,cd :cd %:p:h<CR>:pwd<CR>
+
+" Easier moving of code blocks
+" " Try to go into visual mode (v), then select several lines of code here and
+" " then press ``>`` several times.
+vnoremap < <gv
+vnoremap > >gv
+
+" Sort selected lines alphabetically
+vnoremap ,s :!sort<CR>
+
+" Resize windows more easily.
+if bufwinnr(1)
+  map + <C-W>+
+  map - <C-W>-
+  map <S-h>  <C-W><
+  map <S-l>  <C-W>>
+endif
+
+" Navigate windows with single keys.
+nnoremap <C-J> <C-W>j
+nnoremap <C-K> <C-W>k
+nnoremap <C-H> <C-W>h
+nnoremap <C-l> <C-W>l
+
+" Move faster in location list
+function! Lnext()
+  try
+    lnext
+  catch
+    silent! lfir
+  endtry
+endfunction
+
+function! Lprev()
+  try
+    lprev
+  catch
+    silent! lla
+  endtry
+endfunction
+nnoremap ]\ :call Lnext() <CR>
+nnoremap [\ :call Lprev() <CR>
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Plugins, managed by [vim-plug](https://github.com/junegunn/vim-plug).
+"
+
+call plug#begin('~/.vim/bundle')
+
+Plug 'nsf/gocode', {'rtp': 'vim/'}
+
+Plug 'davidhalter/jedi-vim'
+" Settings for Jedi-vim
+let g:jedi#use_tabs_not_buffers = 0
+
+Plug 'scrooloose/nerdtree'
+nmap nd :NERDTree<cr>
+
+Plug 'tpope/vim-surround'
+
+Plug 'scrooloose/syntastic'
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+Plug 'fatih/vim-go'
+
+Plug 'chrisbra/vim-kconfig' " Prettier kernel config files.
+
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
+Plug 'junegunn/fzf.vim'
+let g:fzf_history_dir = '~/.fzf-history'
+let g:fzf_action = { 'ctrl-t': 'tab split', 'ctrl-s': 'split', 'ctrl-v': 'vsplit' }
+let g:fzf_layout = { 'down': '~70%' }
+command! -bang -nargs=? -complete=dir Files
+  \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
+
+Plug 'junegunn/limelight.vim' " Depends on goyo.
+Plug 'junegunn/goyo.vim'
+" Color name (:help cterm-colors) or ANSI code
+let g:limelight_conceal_ctermfg = 'gray'
+let g:limelight_conceal_ctermfg = 240
+
+call plug#end()
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
