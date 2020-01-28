@@ -7,6 +7,7 @@ set number
 set mouse=a
 set pastetoggle=<F9>
 set cursorline
+set shell=/bin/bash " Use bash (and not zsh) for shell commands executed in vim.
 
 set exrc  " Enable per Project/Directory .vimrc
 set secure  " Disable unsafe commands in your project-specific .vimrc files
