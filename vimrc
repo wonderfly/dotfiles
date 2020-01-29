@@ -155,3 +155,8 @@ let g:limelight_conceal_ctermfg = 240
 
 call plug#end()
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Work-specific settings {{{
+  if filereadable($HOME . "/.vim/work.vim")
+    source $HOME/.vim/work.vim
+  endif
+" }}}

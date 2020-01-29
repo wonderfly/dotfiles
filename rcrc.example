@@ -1,2 +1,2 @@
-DOTFILES_DIRS="${HOME}/.dotfiles"
+DOTFILES_DIRS="${HOME}/.dotfiles-work ${HOME}/.dotfiles"
 EXCLUDES="LICENSE README.md rcm *.example"
