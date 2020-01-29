@@ -27,3 +27,5 @@
 	branch = false
 [oh-my-zsh]
 	hide-status = 0
+[include]
+	path = ~/.gitconfig-work
