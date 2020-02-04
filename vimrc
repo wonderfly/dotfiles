@@ -115,8 +115,11 @@ endif
 call plug#begin('~/.vim/bundle')
 
 " Language specifics
-Plug 'nsf/gocode', {'rtp': 'vim/'}
+" vim-go installs a bunch of binaries to $GOPATH/bin, e.g., gofmt, golint.
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+let g:go_def_mode='gopls' " gopls replaces gocode as the Go auto completion engine
+let g:go_info_mode='gopls'
+
 Plug 'davidhalter/jedi-vim'
 let g:jedi#use_tabs_not_buffers = 0
 
