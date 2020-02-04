@@ -116,7 +116,7 @@ call plug#begin('~/.vim/bundle')
 
 " Language specifics
 Plug 'nsf/gocode', {'rtp': 'vim/'}
-Plug 'fatih/vim-go'
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'davidhalter/jedi-vim'
 let g:jedi#use_tabs_not_buffers = 0
 
