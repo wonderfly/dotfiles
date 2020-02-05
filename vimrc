@@ -145,6 +145,8 @@ let g:syntastic_go_checkers = ['go'] " In my experience, having anything else he
 " Source about the imcompatibility between vim-go and syntastic:
 " https://github.com/neoclide/coc.nvim/issues/1048#issuecomment-539809369.
 
+Plug 'ycm-core/YouCompleteMe', { 'do': './install.py --go-completer' }
+
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
 let g:fzf_history_dir = '~/.fzf-history'
