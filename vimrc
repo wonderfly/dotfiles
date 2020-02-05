@@ -32,7 +32,6 @@ set expandtab
 set tabstop=2
 set softtabstop=2
 set shiftwidth=2
-set sw=2
 
 " Show a vertical red bar at the margin.
 set tw=80
@@ -40,7 +39,7 @@ set colorcolumn=+1,+2
 highlight ColorColumn ctermbg=red guibg=gray9
 
 " Folding
-set foldmethod=syntax
+" set foldmethod=syntax " This might be causing a bug: https://github.com/neoclide/coc.nvim/issues/1048#issuecomment-539809369
 set foldlevel=100
 set foldcolumn=3
 
