@@ -118,6 +118,7 @@ call plug#begin('~/.vim/bundle')
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 let g:go_def_mode='gopls' " gopls replaces gocode as the Go auto completion engine
 let g:go_info_mode='gopls'
+let g:go_fmt_command = "goimports" " goimports does BOTH formatting and imports management
 
 Plug 'davidhalter/jedi-vim'
 let g:jedi#use_tabs_not_buffers = 0
@@ -140,6 +141,9 @@ Plug 'scrooloose/syntastic'
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+let g:syntastic_go_checkers = ['go'] " In my experience, having anything else here will break it.
+" Source about the imcompatibility between vim-go and syntastic:
+" https://github.com/neoclide/coc.nvim/issues/1048#issuecomment-539809369.
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
