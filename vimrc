@@ -145,6 +145,7 @@ let g:syntastic_go_checkers = ['go'] " In my experience, having anything else he
 " https://github.com/neoclide/coc.nvim/issues/1048#issuecomment-539809369.
 
 Plug 'ycm-core/YouCompleteMe', { 'do': './install.py --go-completer' }
+let g:ycm_autoclose_preview_window_after_completion = 1
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
