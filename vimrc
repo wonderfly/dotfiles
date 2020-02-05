@@ -116,9 +116,8 @@ call plug#begin('~/.vim/bundle')
 " Language specifics
 " vim-go installs a bunch of binaries to $GOPATH/bin, e.g., gofmt, golint.
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-let g:go_def_mode='gopls' " gopls replaces gocode as the Go auto completion engine
-let g:go_info_mode='gopls'
 let g:go_fmt_command = "goimports" " goimports does BOTH formatting and imports management
+" See additional vim-go configs in vim/ftplugin/go.vim
 
 Plug 'davidhalter/jedi-vim'
 let g:jedi#use_tabs_not_buffers = 0
