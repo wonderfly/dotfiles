@@ -24,3 +24,6 @@ if echo "a" | grep --color "a" >/dev/null 2>/dev/null; then
   alias fgrep='fgrep --color=auto'
   alias egrep='egrep --color=auto'
 fi
+
+# fd, a `find` alternative: https://github.com/sharkdp/fd
+alias fd=fdfind
