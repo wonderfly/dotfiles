@@ -11,6 +11,16 @@ To set up a new host:
 * `git clone https://github.com/wonderfly/dotfiles ~/.dotfiles`
 * `PATH="~/.dotfiles/rcm/bin:$PATH" rcup`
 
+Alternatively you could build a Docker container that automatically sets
+dotfiles up and also installs a lot of useful tools.
+
+```
+$ git clone https://github.com/wonderfly/dotfiles
+$ cd dotfiles
+$ docker build -t mydev-container .
+$ docker run -it mydev-container
+```
+
 ## Work dotfiles
 
 I store my work dotfiles separately on an internal git server. `rcm` allows me
