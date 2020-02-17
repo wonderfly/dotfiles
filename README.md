@@ -8,7 +8,7 @@ bundled as part of my dotfiles in the [rcm](./rcm/) directory.
 
 To set up a new host:
 
-* `git clone https://github.com/willnorris/dotfiles ~/.dotfiles`
+* `git clone https://github.com/wonderfly/dotfiles ~/.dotfiles`
 * `PATH="~/.dotfiles/rcm/bin:$PATH" rcup`
 
 ## Work dotfiles
