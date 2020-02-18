@@ -53,7 +53,7 @@ RUN cd /tmp/man-pages-5.04/ && sudo make install
 RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 # Set up dotfiles and vim
-COPY . /home/wonderfly/.dotfiles
+COPY --chown=wonderfly . /home/wonderfly/.dotfiles
 ENV PATH "/home/wonderfly/.dotfiles/rcm/bin:$PATH"
 RUN rcup -f
 RUN vim +PlugInstall +qall
