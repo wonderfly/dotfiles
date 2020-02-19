@@ -35,5 +35,5 @@ to manage them separately and merge them when needed:
 
 Most of the actual configurations are mine, but I borrowed heavily from Will
 Norris, <https://github.com/willnorris/dotfiles>, especially on the RCM bits and
-the overall structure. The things that I own are available under a [0BSD
-license](./LICENSE).
+the overall structure. The things that I authored are released under the Apache
+2.0 license as can be seen in [LICENSE](./LICENSE).
