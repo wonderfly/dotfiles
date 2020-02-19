@@ -9,7 +9,7 @@ bundled as part of my dotfiles in the [rcm](./rcm/) directory.
 To set up a new host:
 
 * `git clone https://github.com/wonderfly/dotfiles ~/.dotfiles`
-* `PATH="~/.dotfiles/rcm/bin:$PATH" rcup`
+* `PATH="~/.dotfiles/third_party/rcm/bin:$PATH" rcup`
 
 Alternatively you could build a Docker container that automatically sets
 dotfiles up and also installs a lot of useful tools.

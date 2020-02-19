@@ -8,3 +8,12 @@ if [ -d "$HOME/.profile.d" ]; then
   done
   unset i
 fi
+
+if [ -d "$HOME/.third_party/profile.d" ]; then
+  for i in $HOME/.third_party/profile.d/*.sh; do
+    if [ -r $i ]; then
+      . $i
+    fi
+  done
+  unset i
+fi

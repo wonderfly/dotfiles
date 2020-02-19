@@ -68,7 +68,7 @@ RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master
 
 # Set up dotfiles and vim
 COPY --chown=wonderfly . /home/wonderfly/.dotfiles
-ENV PATH "/home/wonderfly/.dotfiles/rcm/bin:$PATH"
+ENV PATH "/home/wonderfly/.dotfiles/third_party/rcm/bin:$PATH"
 RUN rcup -f
 RUN vim +PlugInstall +qall
 RUN cp /home/wonderfly/.dotfiles/mymuse.zsh-theme /home/wonderfly/.oh-my-zsh/custom/themes/
