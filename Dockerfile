@@ -73,4 +73,9 @@ RUN rcup -f
 RUN vim +PlugInstall +qall
 RUN cp /home/wonderfly/.dotfiles/mymuse.zsh-theme /home/wonderfly/.oh-my-zsh/custom/themes/
 
+RUN export DEBIAN_FRONTEND=noninteractive && \
+  sudo ln -fs /usr/share/zoneinfo/America/Los_Angeles /etc/localtime
+RUN sudo apt-get install -y texlive texlive-xetex
+RUN sudo dpkg-reconfigure --frontend noninteractive tzdata
+
 CMD [ "zsh" ]
