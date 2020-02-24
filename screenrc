@@ -1,1 +1,2 @@
 shell "/usr/bin/zsh"
+termcapinfo xterm|xterms|xs ti@:te=\E[2J

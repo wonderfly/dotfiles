@@ -27,3 +27,6 @@ fi
 
 # fd, a `find` alternative: https://github.com/sharkdp/fd
 alias fd=fdfind
+
+# For GNU screen to allow mouse scrolling.
+export TERM=xterm
