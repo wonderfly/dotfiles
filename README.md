@@ -26,7 +26,7 @@ $ docker run -it mydev-container
 I store my work dotfiles separately on an internal git server. `rcm` allows me
 to manage them separately and merge them when needed:
 
-* `git clone git://<internal-server>/my/dotfiles ~/.dotfiles-work
+* `git clone git://<internal-server>/my/dotfiles ~/.dotfiles-work`
 * update `~/.rcrc` to include `DOTFILES_DIRS="${HOME}/.dotfiles-work ${HOME}/.dotfiles"`
 
 `rcup` will now install my work-specific dotfiles alongside my regular ones.
