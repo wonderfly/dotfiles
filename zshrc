@@ -101,6 +101,7 @@ export EDITOR='vim'
 
 # Convenient functions for screen commands.
 alias sl='screen -ls'
+alias sc='screen'
 function sr() {
   screen -r $1
 }
