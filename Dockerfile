@@ -78,4 +78,7 @@ RUN export DEBIAN_FRONTEND=noninteractive && \
 RUN sudo apt-get install -y texlive texlive-xetex
 RUN sudo dpkg-reconfigure --frontend noninteractive tzdata
 
+# Now, unminimize the "minimized" Ubuntu
+RUN sudo unminimize -y
+
 CMD [ "zsh" ]
