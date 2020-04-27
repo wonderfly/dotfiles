@@ -48,6 +48,10 @@ autocmd FileType markdown,gitcommit,text setlocal spell spelllang=en_us
 
 " Linux Kernel coding style
 let g:linuxsty_patterns = [ "/linux/", "/kernel/" , "/vboot_reference/", "/depthcharge/", "coreboot", "e2fsprogs"]
+
+" I don't like vim's default python style
+" That comes with /usr/share/vim/vim<version>/ftplugin/python.vim
+let g:python_recommended_style = 0
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
