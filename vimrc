@@ -148,8 +148,14 @@ let g:syntastic_go_checkers = ['go'] " In my experience, having anything else he
 " Source about the imcompatibility between vim-go and syntastic:
 " https://github.com/neoclide/coc.nvim/issues/1048#issuecomment-539809369.
 
-Plug 'ycm-core/YouCompleteMe', { 'do': './install.py --go-completer' }
+Plug 'autozimu/LanguageClient-neovim', { 'do': 'bash install.sh' }
+
+Plug 'ycm-core/YouCompleteMe', { 'do': './install.py --go-completer --clangd-completer' }
 let g:ycm_autoclose_preview_window_after_completion = 1
+" Let clangd fully control code completion
+let g:ycm_clangd_uses_ycmd_caching = 0
+" Use installed clangd, not YCM-bundled clangd which doesn't get updates.
+let g:ycm_clangd_binary_path = exepath("clangd")
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
