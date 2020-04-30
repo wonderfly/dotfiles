@@ -12,12 +12,20 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-FROM ubuntu:19.10
+FROM ubuntu:20.04
+
+RUN apt-get update && \
+  apt-get upgrade -y && \
+  apt-get install -y --no-install-recommends \
+  tzdata
+
+RUN export DEBIAN_FRONTEND=noninteractive && \
+  ln -fs /usr/share/zoneinfo/America/Los_Angeles /etc/localtime
+#RUN sudo apt-get install -y texlive texlive-xetex
+RUN dpkg-reconfigure --frontend noninteractive tzdata
 
 # Standard tools
-RUN apt-get update && \
-	apt-get upgrade -y &&  \
-	apt-get install -y --no-install-recommends  \
+RUN apt-get install -y --no-install-recommends  \
 	man vim screen tree tig git curl wget bc less ctags python python3 python3-dev \
 	sudo git bash-completion cscope \
 	ca-certificates \
@@ -30,7 +38,9 @@ RUN apt-get update && \
   cmake \
   manpages-posix-dev \
   zsh \
-  fd-find
+  fd-find \
+  gnupg \
+  clang-format clang-tidy clang-tools clang clangd
 
 # Create user
 RUN useradd -m -s /bin/bash -p '*' wonderfly
@@ -73,10 +83,6 @@ RUN rcup -f
 RUN vim +PlugInstall +qall
 RUN cp /home/wonderfly/.dotfiles/mymuse.zsh-theme /home/wonderfly/.oh-my-zsh/custom/themes/
 
-RUN export DEBIAN_FRONTEND=noninteractive && \
-  sudo ln -fs /usr/share/zoneinfo/America/Los_Angeles /etc/localtime
-RUN sudo apt-get install -y texlive texlive-xetex
-RUN sudo dpkg-reconfigure --frontend noninteractive tzdata
 
 # Now, unminimize the "minimized" Ubuntu
 RUN yes | sudo unminimize
