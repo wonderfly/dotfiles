@@ -25,7 +25,7 @@ RUN export DEBIAN_FRONTEND=noninteractive && \
 RUN dpkg-reconfigure --frontend noninteractive tzdata
 
 # Standard tools
-RUN apt-get install -y --no-install-recommends  \
+RUN apt-get update && apt-get install -y --no-install-recommends  \
 	man vim screen tree tig git curl wget bc less ctags \
   python python3 python3-dev python3-pip \
 	sudo git bash-completion cscope \
@@ -80,6 +80,10 @@ RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master
 # Python packages
 RUN pip3 install autopep8
 ENV PATH "/home/wonderfly/.local/bin/:$PATH"
+
+# diff-so-fancy
+RUN git clone https://github.com/so-fancy/diff-so-fancy /home/wonderfly/diff-so-fancy
+ENV PATH "/home/wonderfly/diff-so-fancy/:$PATH"
 
 # Set up dotfiles and vim
 COPY --chown=wonderfly . /home/wonderfly/.dotfiles
