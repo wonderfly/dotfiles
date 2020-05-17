@@ -171,6 +171,8 @@ Plug 'junegunn/goyo.vim'
 let g:limelight_conceal_ctermfg = 'gray'
 let g:limelight_conceal_ctermfg = 240
 
+Plug 'Vimjas/vim-python-pep8-indent' " Depends on autopep8
+
 call plug#end()
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Work-specific settings {{{

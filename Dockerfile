@@ -26,7 +26,8 @@ RUN dpkg-reconfigure --frontend noninteractive tzdata
 
 # Standard tools
 RUN apt-get install -y --no-install-recommends  \
-	man vim screen tree tig git curl wget bc less ctags python python3 python3-dev \
+	man vim screen tree tig git curl wget bc less ctags \
+  python python3 python3-dev python3-pip \
 	sudo git bash-completion cscope \
 	ca-certificates \
 	file \
@@ -75,6 +76,10 @@ RUN cd /tmp/man-pages-5.04/ && sudo make install
 
 # Oh-my-zsh
 RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+# Python packages
+RUN pip3 install autopep8
+ENV PATH "/home/wonderfly/.local/bin/:$PATH"
 
 # Set up dotfiles and vim
 COPY --chown=wonderfly . /home/wonderfly/.dotfiles
