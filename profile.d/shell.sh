@@ -30,3 +30,5 @@ alias fd=fdfind
 
 # For GNU screen to allow mouse scrolling.
 export TERM=xterm
+
+export PATH=$HOME/.diff-so-fancy:$PATH
