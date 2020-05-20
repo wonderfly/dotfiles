@@ -1,6 +1,17 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Get help
+" :help <the thing you want to know>
+" 
+" Even when you only vaguely know what you are looking for, you can use
+" `:helpgrep <keyword>`.
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " General configurations.
 "
+set nocompatible " No need to be compatible with vi
+set path+=** " Configure the `:find` command to search through subdirectories
+set wildmenu
+
 syntax on
 colorscheme delek
 set number
@@ -164,6 +175,7 @@ let g:fzf_action = { 'ctrl-t': 'tab split', 'ctrl-s': 'split', 'ctrl-v': 'vsplit
 let g:fzf_layout = { 'down': '~70%' }
 command! -bang -nargs=? -complete=dir Files
   \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
+nnoremap <Leader>f :Files<CR>
 
 Plug 'junegunn/limelight.vim' " Depends on goyo.
 Plug 'junegunn/goyo.vim'
