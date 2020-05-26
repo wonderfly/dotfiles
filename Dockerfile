@@ -41,7 +41,9 @@ RUN apt-get update && apt-get install -y --no-install-recommends  \
   zsh \
   fd-find \
   gnupg \
-  clang-format clang-tidy clang-tools clang clangd
+  clang-format clang-tidy clang-tools clang clangd \
+  libssl-dev \
+  libfuse3-dev
 
 # Create user
 RUN useradd -m -s /bin/bash -p '*' wonderfly
