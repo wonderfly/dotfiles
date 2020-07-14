@@ -189,6 +189,8 @@ let g:limelight_conceal_ctermfg = 240
 
 Plug 'Vimjas/vim-python-pep8-indent' " Depends on autopep8
 
+Plug 'rhysd/vim-clang-format'
+
 call plug#end()
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Work-specific settings {{{
