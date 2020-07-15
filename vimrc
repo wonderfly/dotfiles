@@ -1,13 +1,20 @@
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Get help
+" Make this file easier to read {{{
+augroup filetype_vim
+  " See why this is useful and sane:
+  " https://learnvimscriptthehardway.stevelosh.com/chapters/18.html#grouping
+  autocmd!
+  autocmd FileType vim setlocal foldmethod=marker
+augrou END
+" }}}
+
+" Get help {{{
 " :help <the thing you want to know>
 "
 " Even when you only vaguely know what you are looking for, you can use
 " `:helpgrep <keyword>`.
+" }}}
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" General configurations.
-"
+" General configurations {{{
 set nocompatible " No need to be compatible with vi
 set path+=** " Configure the `:find` command to search through subdirectories
 set wildmenu
@@ -45,8 +52,8 @@ set softtabstop=2
 set shiftwidth=2
 
 " Show a vertical red bar at the margin.
-set tw=80
-set colorcolumn=+1,+2
+set textwidth=80
+set colorcolumn=+1
 highlight ColorColumn ctermbg=red guibg=gray9
 
 " Folding
@@ -55,21 +62,39 @@ set foldlevel=100
 set foldcolumn=3
 
 " Spell check on for Markdowns, git commits and text files
-autocmd FileType markdown,gitcommit,text setlocal spell spelllang=en_us
+augroup spellchecks
+  autocmd!
+  autocmd FileType markdown,gitcommit,text setlocal spell spelllang=en_us
+augroup END
 
 " Linux Kernel coding style
 let g:linuxsty_patterns = [ "/linux/", "/kernel/" , "/vboot_reference/", "/depthcharge/", "coreboot", "e2fsprogs", "sbsigntools"]
 
+iabbrev @@ wonderflywang@gmail.com
+
 " Disable the following option if you don't like vim's Python style.
 " It comes with /usr/share/vim/vim<version>/ftplugin/python.vim
 " let g:python_recommended_style = 0
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" }}}
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Mappings
-"
-let mapleader=","
+" Mappings {{{
+let mapleader = ","
 nmap ; :
+
+" In normal mode, use <leader>" to wrap the current word in double quotes.
+:nnoremap <leader>" viw<esc>a"<esc>bi"<esc>lel
+:nnoremap <leader>' viw<esc>a'<esc>bi'<esc>lel
+
+" Toggle cases of the current word in insert mode with Ctrl-u and Ctrl-l.
+inoremap <c-u> <esc>viwUi
+inoremap <c-l> <esc>viwui
+
+" Toggle cases of the current word in normal mode with <leader>u and <leader>l.
+nnoremap <leader>u viwU
+nnoremap <leader>l viwu
+
+" Open vimrc quickly
+nnoremap <leader>rc :split $MYVIMRC<cr>
 
 " Change working directory to that of the current file.
 nnoremap ,cd :cd %:p:h<CR>:pwd<CR>
@@ -115,11 +140,9 @@ function! Lprev()
 endfunction
 nnoremap ]\ :call Lnext() <CR>
 nnoremap [\ :call Lprev() <CR>
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" }}}
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Plugins, managed by [vim-plug](https://github.com/junegunn/vim-plug).
-"
+" Plugins, managed by https://github.com/junegunn/vim-plug. {{{
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
         \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -192,7 +215,8 @@ Plug 'Vimjas/vim-python-pep8-indent' " Depends on autopep8
 Plug 'rhysd/vim-clang-format'
 
 call plug#end()
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" }}}
+
 " Work-specific settings {{{
   if filereadable($HOME . "/.vim/work.vim")
     source $HOME/.vim/work.vim
