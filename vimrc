@@ -65,7 +65,7 @@ set colorcolumn=+1
 highlight ColorColumn ctermbg=red guibg=gray9
 
 " Folding
-" set foldmethod=syntax " This might be causing a bug: https://github.com/neoclide/coc.nvim/issues/1048#issuecomment-539809369
+set foldmethod=syntax " This might be causing a bug: https://github.com/neoclide/coc.nvim/issues/1048#issuecomment-539809369
 set foldlevel=100
 set foldcolumn=3
 
