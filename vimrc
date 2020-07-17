@@ -1,10 +1,10 @@
 " Make this file easier to read {{{
-augroup filetype_vim
+  augroup filetype_vim
   " See why this is useful and sane:
   " https://learnvimscriptthehardway.stevelosh.com/chapters/18.html#grouping
   autocmd!
   autocmd FileType vim setlocal foldmethod=marker
-augrou END
+augroup END
 " }}}
 
 " Get help {{{
