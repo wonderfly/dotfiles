@@ -86,9 +86,22 @@ iabbrev @@ wonderflywang@gmail.com
 let mapleader = ","
 nmap ; :
 
+" Always use "very magic" mode in searches.
+nnoremap / /\v
+nnoremap ? ?\v
+
+" Grep word under cursor, with :Rg.
+"nnoremap <leader>g :execute "Rg " . expand("<cWORD>")<cr>
+
+" Configure :Rg with preview window.
+command! -bang -nargs=* Rg
+	\ call fzf#vim#grep(
+	\   'rg --column --line-number --no-heading --color=always --smart-case -- '.shellescape(<q-args>), 1,
+	\   fzf#vim#with_preview(), <bang>0)
+
 " In normal mode, use <leader>" to wrap the current word in double quotes.
-:nnoremap <leader>" viw<esc>a"<esc>bi"<esc>lel
-:nnoremap <leader>' viw<esc>a'<esc>bi'<esc>lel
+nnoremap <leader>" viw<esc>a"<esc>bi"<esc>lel
+nnoremap <leader>' viw<esc>a'<esc>bi'<esc>lel
 
 " Toggle cases of the current word in insert mode with Ctrl-u and Ctrl-l.
 inoremap <c-u> <esc>viwUi
@@ -100,6 +113,7 @@ nnoremap <leader>l viwu
 
 " Open vimrc quickly
 nnoremap <leader>rc :split $MYVIMRC<cr>
+nnoremap <leader>lrc :so $MYVIMRC<cr>
 
 " Change working directory to that of the current file.
 nnoremap ,cd :cd %:p:h<CR>:pwd<CR>
