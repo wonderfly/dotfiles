@@ -86,6 +86,25 @@ iabbrev @@ wonderflywang@gmail.com
 let mapleader = ","
 nmap ; :
 
+" Open and close quickfix window quickly and nicely.
+nnoremap <leader>q :call QuickfixOpen()<cr>
+augroup quickfix_quit
+	autocmd!
+	autocmd FileType qf nnoremap q :call QuickfixClose()<cr>
+augroup END
+
+function! QuickfixOpen()
+		let g:quickfix_return_to_window = winnr()
+		copen
+endfunction
+
+function! QuickfixClose()
+  cclose
+  if exists("g:quickfix_return_to_window")
+		execute g:quickfix_return_to_window . "wincmd w"
+  endif
+endfunction
+
 " Always use "very magic" mode in searches.
 nnoremap / /\v
 nnoremap ? ?\v
