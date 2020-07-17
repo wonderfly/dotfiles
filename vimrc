@@ -21,7 +21,7 @@ set wildmenu
 
 augroup filetype_c
   autocmd!
-  autocmd Syntax c,cpp ClangFormatAutoEnable
+  autocmd BufWritePre *.c,*.h :call LanguageClient#textDocument_formatting_sync()
 augroup END
 
 syntax on
@@ -203,6 +203,11 @@ let g:syntastic_go_checkers = ['go'] " In my experience, having anything else he
 
 Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh' }
 
+let g:LanguageClient_serverCommands = {
+  \ 'cpp': ['clangd'],
+  \ 'c': ['clangd'],
+  \ }
+
 " Skip installing YCM if a work profile is detected - as my work profile
 " installs a different version of YCM.
 if !filereadable($HOME . "/.vim/work.vim")
@@ -230,8 +235,6 @@ let g:limelight_conceal_ctermfg = 'gray'
 let g:limelight_conceal_ctermfg = 240
 
 Plug 'Vimjas/vim-python-pep8-indent' " Depends on autopep8
-
-Plug 'rhysd/vim-clang-format'
 
 call plug#end()
 " }}}
