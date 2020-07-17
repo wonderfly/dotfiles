@@ -19,6 +19,11 @@ set nocompatible " No need to be compatible with vi
 set path+=** " Configure the `:find` command to search through subdirectories
 set wildmenu
 
+augroup filetype_c
+  autocmd!
+  autocmd Syntax c,cpp ClangFormatAutoEnable
+augroup END
+
 syntax on
 colorscheme delek
 set number
