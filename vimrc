@@ -22,6 +22,7 @@ set wildmenu
 augroup filetype_c
   autocmd!
   autocmd BufWritePre *.c,*.h :call LanguageClient#textDocument_formatting_sync()
+  autocmd BufNewFile,BufReadPre *.c,*.h :nnoremap <c-]> :call LanguageClient#textDocument_definition()<cr>
 augroup END
 
 syntax on
