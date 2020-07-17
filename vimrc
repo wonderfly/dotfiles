@@ -1,4 +1,3 @@
-" Make this file easier to read {{{
 augroup filetype_vim
   " See why this is useful and sane:
   " https://learnvimscriptthehardway.stevelosh.com/chapters/18.html#grouping
@@ -258,6 +257,12 @@ let g:limelight_conceal_ctermfg = 'gray'
 let g:limelight_conceal_ctermfg = 240
 
 Plug 'Vimjas/vim-python-pep8-indent' " Depends on autopep8
+
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+let g:UltiSnipsExpandTrigger = '<C-j>'
+let g:UltiSnipsJumpForwardTrigger = '<C-j>'
+let g:UltiSnipsJumpBackwardTrigger = '<C-k>'
 
 call plug#end()
 " }}}
