@@ -19,6 +19,9 @@ set nocompatible " No need to be compatible with vi
 set path+=** " Configure the `:find` command to search through subdirectories
 set wildmenu
 
+" Use :Man as the default command for K.
+set keywordprg=:Man
+
 augroup filetype_c
   autocmd!
   autocmd BufWritePre *.c,*.h :call LanguageClient#textDocument_formatting_sync()
