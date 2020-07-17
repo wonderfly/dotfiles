@@ -89,6 +89,9 @@ iabbrev @@ wonderflywang@gmail.com
 let mapleader = ","
 nmap ; :
 
+" I never really use the recording features bound to 'q'.
+nnoremap q :q<cr>
+
 " Open and close quickfix window quickly and nicely.
 nnoremap <leader>q :call QuickfixOpen()<cr>
 augroup quickfix_quit
