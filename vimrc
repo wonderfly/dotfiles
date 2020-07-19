@@ -18,8 +18,18 @@ set nocompatible " No need to be compatible with vi
 set path+=** " Configure the `:find` command to search through subdirectories
 set wildmenu
 
-" Use :Man as the default command for K.
-set keywordprg=:Man
+" Open man page for the word under cursor with K.
+function! ReadMan()
+  " Assign current word under cursor to a script variable:
+  let s:man_word = expand("<cword>")
+  " Open a new window:
+  execute ":new"
+  " Read in the manpage for man_word (col -b is for formatting):
+  execute ":r!man " . s:man_word . " | col -b"
+  execute ":setlocal buftype=nofile"
+  execute ":normal! gg"
+endfun
+set keywordprg=:<SID>ReadMan()
 
 augroup filetype_c
   autocmd!
