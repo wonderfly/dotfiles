@@ -262,6 +262,7 @@ let g:fzf_layout = { 'down': '~70%' }
 command! -bang -nargs=? -complete=dir Files
   \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
 nnoremap <Leader>f :Files<CR>
+nnoremap <Leader>b :Buffers<CR>
 
 Plug 'junegunn/limelight.vim' " Depends on goyo.
 Plug 'junegunn/goyo.vim'
