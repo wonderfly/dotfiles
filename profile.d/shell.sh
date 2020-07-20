@@ -32,4 +32,4 @@ alias fd=fdfind
 export TERM=xterm
 
 export PATH=$HOME/.diff-so-fancy:$PATH
-alias hgdiff="hgdiff | diff-so-fancy | less"
+alias hgdiff="hg diff | diff-so-fancy | less"
