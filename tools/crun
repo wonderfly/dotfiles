@@ -1,0 +1,11 @@
+#!/bin/bash
+# Run a .c file quickly, like `go run xyz.go` would compile and run `xyz.go`,
+# `crun xyz.c` would compile and run `xyz.c`.
+#
+# Synposis:
+#   crun xyz.c [arguments to xyz.c]
+
+CFILE="$1"
+EXEFILE="$(echo $1 | sed -r 's/(.*)\.c/\1/')"
+gcc -o "${EXEFILE}" "${CFILE}"
+"./${EXEFILE}"
