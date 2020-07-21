@@ -6,6 +6,7 @@
 #   crun xyz.c [arguments to xyz.c]
 
 CFILE="$1"
-EXEFILE="$(echo $1 | sed -r 's/(.*)\.c/\1/')"
-gcc -o "${EXEFILE}" "${CFILE}"
-"./${EXEFILE}"
+shift
+EXEFILE="$(echo "${CFILE}" | sed -r 's/(.*)\.c/\1/')"
+gcc -g -o "${EXEFILE}" "${CFILE}"
+"./${EXEFILE}" "$@"
