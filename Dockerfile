@@ -31,19 +31,21 @@ RUN apt-get update && apt-get install -y --no-install-recommends  \
 	sudo git bash-completion cscope \
 	ca-certificates \
 	file \
+	figlet \
 	ssh \
 	gcc \
 	gdb \
 	libc6-dev \
-  build-essential \
-  cmake \
-  manpages-posix-dev \
-  zsh \
-  fd-find \
-  gnupg \
-  clang-format clang-tidy clang-tools clang clangd \
-  libssl-dev \
-  libfuse3-dev
+	build-essential \
+	cmake \
+	manpages-posix-dev \
+	zsh \
+	fd-find \
+	gnupg \
+	clang-format clang-tidy clang-tools clang clangd \
+	automake libtool \
+	libssl-dev \
+	libfuse3-dev
 
 # Create user
 RUN useradd -m -s /bin/bash -p '*' wonderfly
