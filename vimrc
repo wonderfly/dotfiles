@@ -19,17 +19,18 @@ set path+=** " Configure the `:find` command to search through subdirectories
 set wildmenu
 
 " Open man page for the word under cursor with K.
-function! ReadMan()
+function! Man(man_word)
   " Assign current word under cursor to a script variable:
-  let s:man_word = expand("<cword>")
+  "let s:man_word = expand("<cword>")
   " Open a new window:
   execute ":new"
   " Read in the manpage for man_word (col -b is for formatting):
-  execute ":r!man " . s:man_word . " | col -b"
+  execute ":r!man " . a:man_word . " | col -b"
   execute ":setlocal buftype=nofile"
   execute ":normal! gg"
 endfun
-set keywordprg=:<SID>ReadMan()
+command! -bang -nargs=* Man call Man(<q-args>)
+set keywordprg=:<SID>Man(expand("<cword>"))
 
 augroup filetype_c
   autocmd!
@@ -126,7 +127,7 @@ nnoremap / /\v
 nnoremap ? ?\v
 
 " Grep word under cursor, with :Rg.
-"nnoremap <leader>g :execute "Rg " . expand("<cWORD>")<cr>
+nnoremap <leader>g :execute "Rg " . expand("<cword>")<cr>
 
 " Configure :Rg with preview window.
 command! -bang -nargs=* Rg
