@@ -30,7 +30,7 @@ function! Man(man_word)
   execute ":normal! gg"
 endfun
 command! -bang -nargs=* Man call Man(<q-args>)
-set keywordprg=:<SID>Man(expand("<cword>"))
+set keywordprg=:Man
 
 augroup filetype_c
   autocmd!
