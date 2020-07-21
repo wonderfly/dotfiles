@@ -33,3 +33,6 @@ export TERM=xterm
 
 export PATH=$HOME/.diff-so-fancy:$PATH
 alias hgdiff="hg diff | diff-so-fancy | less"
+
+# Add my tools to PATH
+export PATH=$HOME/.dotfiles-work/tools/:$HOME/.dotfiles/tools:$PATH
