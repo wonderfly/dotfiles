@@ -32,12 +32,6 @@ endfun
 command! -bang -nargs=* Man call Man(<q-args>)
 set keywordprg=:Man
 
-augroup filetype_c
-  autocmd!
-  autocmd BufWritePre *.c,*.h :call LanguageClient#textDocument_formatting_sync()
-  autocmd BufNewFile,BufReadPre *.c,*.h :nnoremap <c-]> :call LanguageClient#textDocument_definition()<cr>
-augroup END
-
 syntax on
 colorscheme delek
 set number
@@ -107,7 +101,7 @@ nnoremap q :q<cr>
 nnoremap <leader>q :call QuickfixOpen()<cr>
 augroup quickfix_quit
 	autocmd!
-	autocmd FileType qf nnoremap q :call QuickfixClose()<cr>
+	autocmd FileType qf nnoremap <leader>q :call QuickfixClose()<cr>
 augroup END
 
 function! QuickfixOpen()
