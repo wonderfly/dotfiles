@@ -19,17 +19,7 @@ set path+=** " Configure the `:find` command to search through subdirectories
 set wildmenu
 
 " Open man page for the word under cursor with K.
-function! Man(man_word)
-  " Assign current word under cursor to a script variable:
-  "let s:man_word = expand("<cword>")
-  " Open a new window:
-  execute ":new"
-  " Read in the manpage for man_word (col -b is for formatting):
-  execute ":r!man " . a:man_word . " | col -b"
-  execute ":setlocal buftype=nofile"
-  execute ":normal! gg"
-endfun
-command! -bang -nargs=* Man call Man(<q-args>)
+command! -bang -nargs=* Man :terminal ++close man <args>
 set keywordprg=:Man
 
 syntax on
@@ -168,6 +158,12 @@ nnoremap <C-J> <C-W>j
 nnoremap <C-K> <C-W>k
 nnoremap <C-H> <C-W>h
 nnoremap <C-l> <C-W>l
+
+" Apply the same mappings to terminal windows.
+tnoremap <C-J> <C-W>j
+tnoremap <C-K> <C-W>k
+tnoremap <C-H> <C-W>h
+tnoremap <C-l> <C-W>l
 
 " Move faster in location list
 function! Lnext()
