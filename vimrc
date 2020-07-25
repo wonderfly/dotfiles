@@ -86,21 +86,32 @@ nmap ; :
 nnoremap q :q<cr>
 
 " Open and close quickfix window quickly and nicely.
-nnoremap <leader>q :call QuickfixOpen()<cr>
-augroup quickfix_quit
-	autocmd!
-	autocmd FileType qf nnoremap <leader>q :call QuickfixClose()<cr>
-augroup END
+let s:qfopen = 0
+nnoremap <leader>q :call <SID>QuickfixToggle()<cr>
+"augroup quickfix_quit
+	"autocmd!
+	"autocmd FileType qf nnoremap <leader>q :call QuickfixClose()<cr>
+"augroup END
 
-function! QuickfixOpen()
-		let g:quickfix_return_to_window = winnr()
-		copen
+function! s:QuickfixToggle()
+  if s:qfopen
+    call <SID>QuickfixClose()
+  else
+    call <SID>QuickfixOpen()
+  endif
 endfunction
 
-function! QuickfixClose()
+function! s:QuickfixOpen()
+		let s:quickfix_return_to_window = winnr()
+		copen
+    let s:qfopen = 1
+endfunction
+
+function! s:QuickfixClose()
   cclose
-  if exists("g:quickfix_return_to_window")
-		execute g:quickfix_return_to_window . "wincmd w"
+  let s:qfopen = 0
+  if exists("s:quickfix_return_to_window")
+		execute s:quickfix_return_to_window . "wincmd w"
   endif
 endfunction
 
