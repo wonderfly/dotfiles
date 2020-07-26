@@ -36,3 +36,5 @@ alias hgdiff="hg diff | diff-so-fancy | less"
 
 # Add my tools to PATH
 export PATH=$HOME/.dotfiles-work/tools/:$HOME/.dotfiles/tools:$PATH
+
+alias gdb="gdb --silent"
