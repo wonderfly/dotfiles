@@ -1,0 +1,1 @@
+third_party/gdb-dashboard/gdbinit
