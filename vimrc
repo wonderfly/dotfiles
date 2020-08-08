@@ -1,3 +1,4 @@
+" Begin. {{{
 augroup filetype_vim
   " See why this is useful and sane:
   " https://learnvimscriptthehardway.stevelosh.com/chapters/18.html#grouping
@@ -88,10 +89,6 @@ nnoremap q :q<cr>
 " Open and close quickfix window quickly and nicely.
 let s:qfopen = 0
 nnoremap <leader>q :call <SID>QuickfixToggle()<cr>
-"augroup quickfix_quit
-	"autocmd!
-	"autocmd FileType qf nnoremap <leader>q :call QuickfixClose()<cr>
-"augroup END
 
 function! s:QuickfixToggle()
   if s:qfopen
@@ -102,8 +99,8 @@ function! s:QuickfixToggle()
 endfunction
 
 function! s:QuickfixOpen()
-		let s:quickfix_return_to_window = winnr()
-		copen
+  let s:quickfix_return_to_window = winnr()
+  copen
     let s:qfopen = 1
 endfunction
 
@@ -111,7 +108,7 @@ function! s:QuickfixClose()
   cclose
   let s:qfopen = 0
   if exists("s:quickfix_return_to_window")
-		execute s:quickfix_return_to_window . "wincmd w"
+    execute s:quickfix_return_to_window . "wincmd w"
   endif
 endfunction
 
@@ -124,9 +121,9 @@ nnoremap <leader>g :execute "Rg " . expand("<cword>")<cr>
 
 " Configure :Rg with preview window.
 command! -bang -nargs=* Rg
-	\ call fzf#vim#grep(
-	\   'rg --column --line-number --no-heading --color=always --smart-case -- '.shellescape(<q-args>), 1,
-	\   fzf#vim#with_preview(), <bang>0)
+      \ call fzf#vim#grep(
+      \   'rg --column --line-number --no-heading --color=always --smart-case -- '.shellescape(<q-args>), 1,
+      \   fzf#vim#with_preview(), <bang>0)
 
 " In normal mode, use <leader>" to wrap the current word in double quotes.
 nnoremap <leader>" viw<esc>a"<esc>bi"<esc>lel
@@ -205,6 +202,9 @@ endif
 
 call plug#begin('~/.vim/bundle')
 
+" First thing first.
+Plug 'tpope/vim-sensible'
+
 " Language specifics
 " vim-go installs a bunch of binaries to $GOPATH/bin, e.g., gofmt, golint.
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
@@ -237,7 +237,6 @@ let g:syntastic_go_checkers = ['go'] " In my experience, having anything else he
 " https://github.com/neoclide/coc.nvim/issues/1048#issuecomment-539809369.
 
 Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh' }
-
 let g:LanguageClient_serverCommands = {
   \ 'cpp': ['clangd'],
   \ 'c': ['clangd'],
@@ -264,11 +263,11 @@ command! -bang -nargs=? -complete=dir Files
 nnoremap <Leader>f :Files<CR>
 nnoremap <Leader>b :Buffers<CR>
 
-Plug 'junegunn/limelight.vim' " Depends on goyo.
-Plug 'junegunn/goyo.vim'
-" Color name (:help cterm-colors) or ANSI code
-let g:limelight_conceal_ctermfg = 'gray'
-let g:limelight_conceal_ctermfg = 240
+"Plug 'junegunn/limelight.vim' " Depends on goyo.
+"Plug 'junegunn/goyo.vim'
+"" Color name (:help cterm-colors) or ANSI code
+"let g:limelight_conceal_ctermfg = 'gray'
+"let g:limelight_conceal_ctermfg = 240
 
 Plug 'Vimjas/vim-python-pep8-indent' " Depends on autopep8
 
@@ -278,11 +277,15 @@ let g:UltiSnipsExpandTrigger = '<C-j>'
 let g:UltiSnipsJumpForwardTrigger = '<C-j>'
 let g:UltiSnipsJumpBackwardTrigger = '<C-k>'
 
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+let g:airline_theme = 'luna'
+
 call plug#end()
 " }}}
 
 " Work-specific settings {{{
-  if filereadable($HOME . "/.vim/work.vim")
-    source $HOME/.vim/work.vim
-  endif
+if filereadable($HOME . "/.vim/work.vim")
+  source $HOME/.vim/work.vim
+endif
 " }}}

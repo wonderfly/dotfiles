@@ -29,7 +29,7 @@ fi
 alias fd=fdfind
 
 # For GNU screen to allow mouse scrolling.
-export TERM=xterm
+export TERM=xterm-256color
 
 export PATH=$HOME/.diff-so-fancy:$PATH
 alias hgdiff="hg diff | diff-so-fancy | less"
