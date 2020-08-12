@@ -1,12 +1,12 @@
 #!/bin/bash
-# Run a .cpp file quickly, like `go run xyz.go` would compile and run `xyz.go`,
-# `cpprun xyz.cpp` would compile and run `xyz.c`.
+# Run a .cc file quickly, like `go run xyz.go` would compile and run `xyz.go`,
+# `cpprun xyz.cc` would compile and run `xyz.cc`.
 #
 # Synposis:
-#   cpprun xyz.cpp [arguments to xyz.cpp]
+#   cpprun xyz.cc [arguments to xyz.cc]
 
 CPPFILE="$1"
 shift
-EXEFILE="$(echo "${CPPFILE}" | sed -r 's/(.*)\.cpp$/\1/')"
-g++ -std=c++0x  -g -o "${EXEFILE}" "${CPPFILE}"
-"./${EXEFILE}" "$@"
+EXEFILE="$(echo "${CPPFILE}" | sed -r 's/(.*)\.cc$/\1/')"
+clang++ -std=c++0x  -g -o "${EXEFILE}" "${CPPFILE}"
+"${EXEFILE}" "$@"
