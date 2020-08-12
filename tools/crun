@@ -8,5 +8,5 @@
 CFILE="$1"
 shift
 EXEFILE="$(echo "${CFILE}" | sed -r 's/(.*)\.c/\1/')"
-gcc -g -o "${EXEFILE}" "${CFILE}"
-"./${EXEFILE}" "$@"
+clang -g -o "${EXEFILE}" "${CFILE}"
+"${EXEFILE}" "$@"
