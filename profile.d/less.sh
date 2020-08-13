@@ -14,26 +14,26 @@
 
 # Configure colors for less
 
-# Colors
-color_default=$(tput sgr0)
-color_red=$(tput setaf 1)
-color_green=$(tput setaf 2)
-color_purple=$(tput setaf 5)
-color_orange=$(tput setaf 9)
+## Colors
+FG_default=$(tput sgr0)
+FG_red=$(tput setaf 1)
+FG_green=$(tput setaf 2)
+FG_purple=$(tput setaf 5)
+FG_orange=$(tput setaf 9)
 
-# Less colors for man pages
+## Less colors for man pages
 export PAGER=less
 # Begin blinking
-export LESS_TERMCAP_mb=$color_red
+export LESS_TERMCAP_mb=$FG_red
 # Begin bold
-export LESS_TERMCAP_md=$color_orange
+export LESS_TERMCAP_md=$FG_orange
 # End mode
-export LESS_TERMCAP_me=$color_default
+export LESS_TERMCAP_me=$FG_default
 # End standout-mode
-export LESS_TERMCAP_se=$color_default
+export LESS_TERMCAP_se=$FG_default
 # Begin standout-mode - info box
-export LESS_TERMCAP_so=$color_purple
+export LESS_TERMCAP_so=$(tput bold; tput setaf 0; tput setab 7)
 # End underline
-export LESS_TERMCAP_ue=$color_default
+export LESS_TERMCAP_ue=$FG_default
 # Begin underline
-export LESS_TERMCAP_us=$color_green
+export LESS_TERMCAP_us=$FG_green

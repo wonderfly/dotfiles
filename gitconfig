@@ -30,3 +30,5 @@
 	hide-status = 0
 [include]
 	path = ~/.gitconfig-work
+[http]
+	cookiefile = /usr/local/google/home/wonderfly/.gitcookies
