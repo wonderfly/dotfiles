@@ -284,6 +284,11 @@ let g:airline_theme = 'luna'
 call plug#end()
 " }}}
 
+" Abbreviations {{{
+iabbrev optinoal optional
+iabbrev functino function
+" }}}
+
 " Work-specific settings {{{
 if filereadable($HOME . "/.vim/work.vim")
   source $HOME/.vim/work.vim
