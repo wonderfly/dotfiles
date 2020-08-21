@@ -40,3 +40,17 @@ if command -v fzf > /dev/null; then
     cd "$(_z -l 2>&1 | sed 's/^[0-9,.]* *//' | fzf-tmux +s --tac --query "$*")"
   }
 fi
+
+# General fzf settings.
+export FZF_DEFAULT_OPTS=" \
+  --inline-info \
+  --reverse \
+  --exact \
+  --color=fg+:#F8F8F8,bg+:#515559,pointer:#F8F8F8,marker:226 \
+  --bind=ctrl-e:select-all+accept \
+  --bind=ctrl-d:half-page-down \
+  --bind=ctrl-e:half-page-up
+  --bind=ctrl-t:toggle+down
+  --bind=ctrl-b:toggle+up
+  --bind=ctrl-g:select-all+accept \
+  "
