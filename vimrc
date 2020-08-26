@@ -223,6 +223,9 @@ Plug 'gentoo/gentoo-syntax'
 " Generally useful plugins
 Plug 'scrooloose/nerdtree'
 nmap nd :NERDTree<cr>
+" Use hterm friendly charactors.
+let NERDTreeDirArrowExpandable = "+"
+let NERDTreeDirArrowCollapsible = "-"
 
 Plug 'tpope/vim-surround'
 Plug 'preservim/nerdcommenter'
