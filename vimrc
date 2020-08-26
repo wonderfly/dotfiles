@@ -221,7 +221,7 @@ Plug 'vivien/vim-linux-coding-style'  " Linux kernel coding style.
 Plug 'gentoo/gentoo-syntax'
 
 " Generally useful plugins
-Plug 'scrooloose/nerdtree'
+Plug 'preservim/nerdtree'
 nmap nd :NERDTree<cr>
 " Use hterm friendly charactors.
 let NERDTreeDirArrowExpandable = "+"
