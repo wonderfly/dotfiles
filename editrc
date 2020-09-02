@@ -1,1 +1,7 @@
 bind -v
+# Enable vi mode.
+bind -v
+# Enable Ctrl+R for reverse history searh.
+bind '^R' em-inc-search-prev
+# Tab for autocomplete.
+bind ^I rl_complete
