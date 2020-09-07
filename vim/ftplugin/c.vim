@@ -13,4 +13,4 @@ augroup clang_format
 augroup END
 
 "nnoremap <buffer> <c-]> :call LanguageClient#textDocument_definition()<cr>
-nnoremap <buffer> <C-]> gd<cr>
+nnoremap <buffer> <C-]> :LspDefinition<cr>

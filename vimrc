@@ -239,15 +239,11 @@ let g:syntastic_go_checkers = ['go'] " In my experience, having anything else he
 " Source about the incompatibility between vim-go and syntastic:
 " https://github.com/neoclide/coc.nvim/issues/1048#issuecomment-539809369.
 
-"Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh' }
-"let g:LanguageClient_serverCommands = {
-  "\ 'cpp': ['clangd'],
-  "\ 'c': ['clangd'],
-  "\ }
 Plug 'prabirshrestha/async.vim'
 Plug 'prabirshrestha/vim-lsp'
 Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/asyncomplete-lsp.vim'
+Plug 'mattn/vim-lsp-settings'
 
 " Skip installing YCM if a work profile is detected - as my work profile
 " installs a different version of YCM.
