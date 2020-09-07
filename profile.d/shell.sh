@@ -26,7 +26,7 @@ if echo "a" | grep --color "a" >/dev/null 2>/dev/null; then
 fi
 
 # fd, a `find` alternative: https://github.com/sharkdp/fd
-alias fd=fdfind
+#alias fd=fdfind
 
 # For GNU screen to allow mouse scrolling.
 export TERM=xterm-256color
