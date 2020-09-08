@@ -37,4 +37,8 @@ alias hgdiff="hg diff | diff-so-fancy | less"
 # Add my tools to PATH
 export PATH=$HOME/.dotfiles-work/tools/:$HOME/.dotfiles/tools:$PATH
 
+# Go
+export PATH=$PATH:/usr/local/go/bin
+
 alias gdb="gdb --silent"
+alias vim="nvim"
