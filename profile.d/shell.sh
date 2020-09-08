@@ -14,8 +14,9 @@
 
 [[ -z "$PS1" ]] && return # interactive only
 
-alias vi=vim
-export EDITOR='vim'
+alias vi=nvim
+alias vim="nvim"
+export EDITOR='nvim'
 export VISUAL=${EDITOR}
 export PAGER='less'
 
@@ -41,4 +42,3 @@ export PATH=$HOME/.dotfiles-work/tools/:$HOME/.dotfiles/tools:$PATH
 export PATH=$PATH:/usr/local/go/bin
 
 alias gdb="gdb --silent"
-alias vim="nvim"
