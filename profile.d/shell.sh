@@ -27,7 +27,10 @@ if echo "a" | grep --color "a" >/dev/null 2>/dev/null; then
 fi
 
 # fd, a `find` alternative: https://github.com/sharkdp/fd
-#alias fd=fdfind
+if [[ "$(uname -a)" =~ .*Debian.* ]]; then
+  # On Debian and Ubuntu fd is taken by another package.
+  alias fd=fdfind
+fi
 
 # For GNU screen to allow mouse scrolling.
 export TERM=xterm-256color
