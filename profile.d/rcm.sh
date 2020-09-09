@@ -12,5 +12,5 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-PATH="$HOME/.dotfiles/rcm/bin:$PATH"
-MANPATH="$HOME/.dotfiles/rcm/share/man:$MANPATH"
+PATH="$HOME/.dotfiles/third_party/rcm/bin:$PATH"
+MANPATH="$HOME/.dotfiles/third_party/rcm/share/man:$MANPATH"
