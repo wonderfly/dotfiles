@@ -17,3 +17,8 @@ iptables
 PROTO
 SRC
 SPT
+syslog
+structs
+timestamp
+hostname
+PID
