@@ -44,4 +44,9 @@ export PATH=$HOME/.dotfiles-work/tools/:$HOME/.dotfiles/tools:$PATH
 # Go
 export PATH=$PATH:/usr/local/go/bin
 
+# llvm and clang
+if [[ "$(uname)" == "Darwin" ]]; then
+  export PATH=$PATH:/usr/local/opt/llvm/bin
+fi
+
 alias gdb="gdb --silent"
