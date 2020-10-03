@@ -5,8 +5,15 @@
 # Synposis:
 #   cpprun xyz.cc [arguments to xyz.cc]
 
+set -o errexit
+
+EXT_REGEX_OPT="-r"
+if [[ "$(uname)" == "Darwin" ]]; then
+  EXT_REGEX_OPT="-E"
+fi
+
 CPPFILE="$1"
 shift
-EXEFILE="$(echo "${CPPFILE}" | sed -r 's/(.*)\.cc$/\1/')"
+EXEFILE="$(echo "${CPPFILE}" | sed "${EXT_REGEX_OPT}" 's/(.*)\.cc$/\1/')"
 clang++ -std=c++0x  -g -o "${EXEFILE}" "${CPPFILE}"
 "${EXEFILE}" "$@"

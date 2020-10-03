@@ -5,8 +5,15 @@
 # Synposis:
 #   crun xyz.c [arguments to xyz.c]
 
+set -o errexit
+
+EXT_REGEX_OPT="-r"
+if [[ "$(uname)" == "Darwin" ]]; then
+  EXT_REGEX_OPT="-E"
+fi
+
 CFILE="$1"
 shift
-EXEFILE="$(echo "${CFILE}" | sed -r 's/(.*)\.c/\1/')"
+EXEFILE="$(echo "${CFILE}" | sed "${EXT_REGEX_OPT}" 's/(.*)\.c/\1/')"
 clang -g -o "${EXEFILE}" "${CFILE}"
 "${EXEFILE}" "$@"
