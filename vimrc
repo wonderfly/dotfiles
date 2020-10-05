@@ -58,7 +58,7 @@ set shiftwidth=2
 " Show a vertical red bar at the margin.
 set textwidth=80
 set colorcolumn=+1
-highlight ColorColumn ctermbg=red guibg=gray9
+highlight ColorColumn ctermbg=gray guibg=gray9
 
 " Folding
 set foldmethod=syntax " This might be causing a bug: https://github.com/neoclide/coc.nvim/issues/1048#issuecomment-539809369
