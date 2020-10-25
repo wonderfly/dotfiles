@@ -50,3 +50,6 @@ if [[ "$(uname)" == "Darwin" ]]; then
 fi
 
 alias gdb="gdb --silent"
+
+# Alway turn on colorization for tree.
+alias tree="tree -C"
