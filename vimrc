@@ -219,6 +219,7 @@ Plug 'vivien/vim-linux-coding-style'  " Linux kernel coding style.
 " Type `:LinuxCodingStyle` to enable it on-demand.
 
 Plug 'gentoo/gentoo-syntax'
+Plug 'kergoth/vim-bitbake', { 'for': 'bitbake'}
 
 " Generally useful plugins
 Plug 'preservim/nerdtree'
