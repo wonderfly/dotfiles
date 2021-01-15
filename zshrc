@@ -157,7 +157,7 @@ unsetopt correct_all
 alias dus='du -sh ./* | sort -h'
 
 # Show timestamp in the prompt
-PROMPT='%{$fg[yellow]%}[%D{%f/%m/%y} %D{%L:%M:%S}] '$PROMPT
+PROMPT='%{$fg[yellow]%}[%D{%f/%m/%y} %D{%L:%M:%S}] %m '$PROMPT
 
 alias g4p='g4 p'
 
