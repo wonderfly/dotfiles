@@ -8,6 +8,7 @@
 	last = log -1 HEAD
 	ci = commit
 	out = diff origin/master HEAD
+	amend = commit --amend --no-edit
 [diff]
 	tool = vimdiff
 [difftool]
