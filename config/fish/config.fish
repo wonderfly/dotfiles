@@ -3,13 +3,13 @@ set -x EDITOR 'vim'
 alias sl='screen -ls'
 alias sc='screen'
 function sr
-  screen -r $1
+  screen -r $argv[1]
 end
 
 function srkill
   # Kill a screen session
-  echo screen -S $1 -X quit
-  screen -S $1 -X quit
+  echo screen -S $argv[1] -X quit
+  screen -S $argv[1] -X quit
 end
 
 # Docker shortcuts
