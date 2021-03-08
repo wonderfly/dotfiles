@@ -52,3 +52,29 @@ alias gdb="gdb --silent"
 
 # Alway turn on colorization for tree.
 alias tree="tree -C"
+
+if test -d "$HOMEBREW_HOME/opt/fzf"
+  set -x FZF_HOME "$HOMEBREW_HOME/opt/fzf"
+end
+
+if test -z "$FZF_HOME" && test -d $HOME/.fzf
+  set -x FZF_HOME $HOME/.fzf
+end
+
+if test -n "$FZF_HOME"
+  set -x PATH "$FZF_HOME/bin:$PATH"
+end
+
+# General fzf settings.
+set -x FZF_DEFAULT_OPTS " \
+  --inline-info \
+  --reverse \
+  --exact \
+  --color=fg+:#F8F8F8,bg+:#515559,pointer:#F8F8F8,marker:226 \
+  --bind=ctrl-e:select-all+accept \
+  --bind=ctrl-d:half-page-down \
+  --bind=ctrl-e:half-page-up
+  --bind=ctrl-t:toggle+down
+  --bind=ctrl-b:toggle+up
+  --bind=ctrl-g:select-all+accept \
+  "
