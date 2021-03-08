@@ -82,3 +82,20 @@ end
 # for config_file in (~/.zsh/*.zsh(rN))
 #   source $config_file
 # end
+
+function which
+  set -l target $argv[1]
+  set -l which_output (command which $target)
+  if string match -rq $target $which_output
+    echo $which_output
+    return
+  end
+  set -l IFS ""
+  set -l functions_output (functions $target)
+  if string match -rq $target $functions_output
+    echo "$functions_output"
+    return
+  end
+  echo "`$target` is not a command, alias or function."
+  exit 1
+end
