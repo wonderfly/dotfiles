@@ -53,8 +53,15 @@ function fish_right_prompt
 end
 
 function fish_prompt
+  set exit_status $status 
   set_color yellow
-  echo (pwd) '>' (set_color normal)
+  printf (pwd)
+  if test $exit_status != 0
+    set_color red
+    printf "[$exit_status]"
+    set_color yellow
+  end
+  echo '>' (set_color normal)
 end
 
 alias g4p='g4 p'
