@@ -220,6 +220,7 @@ Plug 'vivien/vim-linux-coding-style'  " Linux kernel coding style.
 
 Plug 'gentoo/gentoo-syntax'
 Plug 'kergoth/vim-bitbake', { 'for': 'bitbake'}
+Plug 'dag/vim-fish'
 
 " Generally useful plugins
 Plug 'preservim/nerdtree'
