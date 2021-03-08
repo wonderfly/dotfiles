@@ -61,6 +61,7 @@ function fish_prompt
     printf "[$exit_status]"
     set_color yellow
   end
+  printf "%s%s%s" (set_color green) (fish_git_prompt) (set_color yellow)
   echo '>' (set_color normal)
 end
 
