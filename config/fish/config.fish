@@ -31,7 +31,8 @@ alias gapp="gcloud app"
 alias clr=clear
 
 # vi mode
-fish_vi_key_bindings
+set -g fish_key_bindings fish_vi_key_bindings
+bind -M insert \cf forward-char # Ctrl-f to take suggested completion
 
 # virsh
 set -x LIBVIRT_DEFAULT_URI qemu:///system
