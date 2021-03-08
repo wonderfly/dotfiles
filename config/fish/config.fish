@@ -55,7 +55,7 @@ end
 function fish_prompt
   set exit_status $status 
   set_color yellow
-  printf (pwd)
+  printf (prompt_pwd)
   if test $exit_status != 0
     set_color red
     printf "[$exit_status]"
