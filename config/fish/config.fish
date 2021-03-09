@@ -99,5 +99,5 @@ function which
     return
   end
   echo "`$target` is not a command, alias or function."
-  exit 1
+  #return 1
 end
