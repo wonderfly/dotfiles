@@ -177,3 +177,5 @@ fi
 for config_file (~/.zsh/*.zsh(rN)); do
   source $config_file
 done
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

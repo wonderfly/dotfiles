@@ -150,3 +150,5 @@ if [ -d "$HOME/.bash" ]; then
   done
   unset i
 fi
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash

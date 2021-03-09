@@ -101,3 +101,7 @@ function which
   echo "`$target` is not a command, alias or function."
   #return 1
 end
+
+if [ -f ~/.fzf/shell/key-bindings.fish ]
+  ln -s ~/.fzf/shell/key-bindings.sh ~/.config/fish/conf.d/key-bindings.sh
+end
