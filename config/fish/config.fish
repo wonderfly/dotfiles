@@ -103,5 +103,6 @@ function which
 end
 
 if [ -f ~/.fzf/shell/key-bindings.fish ]
-  ln -s ~/.fzf/shell/key-bindings.sh ~/.config/fish/conf.d/key-bindings.sh
+  ln -s ~/.fzf/shell/key-bindings.sh ~/.config/fish/conf.d/key-bindings.sh > \
+      /dev/null 2>&1
 end
