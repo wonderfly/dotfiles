@@ -26,7 +26,7 @@ end
 
 # fd, a `find` alternative: https://github.com/sharkdp/fd
 # if test (uname -a) =~ *Debian*
-if string match 'Debian' (uname -a)
+if string match -rq 'Debian' (uname -a)
   # On Debian and Ubuntu fd is taken by another package.
   alias fd=fdfind
 end
