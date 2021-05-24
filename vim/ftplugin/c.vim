@@ -12,9 +12,12 @@ command! -bang -nargs=* CInclude call <SID>CInclude(<q-args>)
 "nnoremap <buffer> <c-]> :call LanguageClient#textDocument_definition()<cr>
 nnoremap <buffer> <C-]> :LspDefinition<cr>
 
-let s:clangformat_on = 1
+if !exists("g:clangformat_on")
+  let g:pluginname_setting=1
+endif
+
 function! s:ClangFormat()
-  if s:clangformat_on == 1
+  if g:clangformat_on == 1
     echohl ModeMsg | echom "Calling LspDocumentFormat" | echohl None
     execute 'LspDocumentFormat'
   else
@@ -23,8 +26,8 @@ function! s:ClangFormat()
 endfunction
 
 function! s:ToggleClangFormat()
-  let s:clangformat_on = (s:clangformat_on + 1) % 2
-  echohl ModeMsg | echom "ClangFormat state changed to: " . s:clangformat_on | echohl None
+  let g:clangformat_on = (g:clangformat_on + 1) % 2
+  echohl ModeMsg | echom "ClangFormat state changed to: " . g:clangformat_on | echohl None
 endfunction
 command! -bang ToggleClangFormat call <SID>ToggleClangFormat()
 
