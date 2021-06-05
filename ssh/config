@@ -1,4 +1,4 @@
-Include ~/.sshconfig-work
+Include ~/.sshconfig-private
 
 Host github.com
   User git
