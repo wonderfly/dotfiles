@@ -107,3 +107,12 @@ if [ -f ~/.fzf/shell/key-bindings.fish ]
       ~/.config/fish/conf.d/key-bindings.fish > /dev/null 2>&1
 end
 fzf_key_bindings
+
+# Add `sudo !!` to fish shell.
+function sudo --description "Replacement for Bash 'sudo !!' command to run last command using sudo."
+    if test "$argv" = !!
+    eval command sudo $history[1]
+else
+    command sudo $argv
+    end
+end
