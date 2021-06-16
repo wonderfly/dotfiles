@@ -247,6 +247,8 @@ Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/asyncomplete-lsp.vim'
 Plug 'mattn/vim-lsp-settings'
 
+Plug 'martinlroth/vim-acpi-asl'
+
 " Skip installing YCM if a work profile is detected - as my work profile
 " installs a different version of YCM.
 if !filereadable($HOME . "/.vim/work.vim")
