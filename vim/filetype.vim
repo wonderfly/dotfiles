@@ -10,4 +10,5 @@ augroup filetypedetect
   autocmd! BufNewFile,BufRead */etc/apache2/*  setfiletype apache
   autocmd! BufNewFile,BufRead */etc/nginx*.conf  setfiletype nginx
   autocmd! BufNewFile,BufRead *.inf,*.fdf,*.dec,*.dsc setfiletype config
+  autocmd! BufNewFile,BufRead *.asi,*.asl      setfiletype asl
 augroup END
