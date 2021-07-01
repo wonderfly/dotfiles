@@ -49,7 +49,7 @@ alias dus='du -sh ./* | sort -h'
 # Show timestamp in the prompt
 # PROMPT='%{$fg[yellow]%}[%D{%f/%m/%y} %D{%L:%M:%S}] %m '$PROMPT
 function fish_right_prompt
-  set_color blue
+  set_color yellow
   echo (date +"%D %T") (set_color normal)
 end
 
