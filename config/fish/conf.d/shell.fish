@@ -12,9 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-alias vi=nvim
-alias vim=nvim
-set -x EDITOR nvim
+set -x EDITOR vim
 set -x VISUAL $EDITOR
 set -x PAGER less
 
