@@ -237,7 +237,8 @@ Plug 'scrooloose/syntastic'
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
-let g:syntastic_go_checkers = ['go'] " In my experience, having anything else here will break it.
+let g:syntastic_go_checkers = ['go']
+" In my experience, having anything else here will break it.
 " Source about the incompatibility between vim-go and syntastic:
 " https://github.com/neoclide/coc.nvim/issues/1048#issuecomment-539809369.
 
