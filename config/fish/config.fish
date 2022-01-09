@@ -37,7 +37,7 @@ bind -M insert \cf forward-char # Ctrl-f to take suggested completion
 # virsh
 set -x LIBVIRT_DEFAULT_URI qemu:///system
 
-# Required to vim LimeLight to work
+# Required for vim LimeLight to work
 set -x TERM xterm-256color
 
 # Disable auto-correct
