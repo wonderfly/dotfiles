@@ -248,12 +248,22 @@ Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/asyncomplete-lsp.vim'
 Plug 'mattn/vim-lsp-settings'
 
+" Send async completion requests.
+" WARNING: Might interfere with other completion plugins.
+let g:lsp_async_completion = 1
+" Enable UI for diagnostics
+let g:lsp_signs_enabled = 1           " enable diagnostics signs in the gutter
+let g:lsp_diagnostics_echo_cursor = 1 " enable echo under cursor when in normal mode
+" Automatically show completion options
+let g:asyncomplete_auto_popup = 1
+
 Plug 'martinlroth/vim-acpi-asl'
 
 " Skip installing YCM if a work profile is detected - as my work profile
 " installs a different version of YCM.
 if !filereadable($HOME . "/.vim/work.vim")
   Plug 'ycm-core/YouCompleteMe', { 'do': './install.py --go-completer --clangd-completer' }
+  let g:ycm_filetype_specific_completion_to_disable = {'cpp': 1, 'c': 1}
 endif
 let g:ycm_autoclose_preview_window_after_completion = 1
 " Let clangd fully control code completion
