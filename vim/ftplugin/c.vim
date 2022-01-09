@@ -13,7 +13,7 @@ command! -bang -nargs=* CInclude call <SID>CInclude(<q-args>)
 nnoremap <buffer> <C-]> :LspDefinition<cr>
 
 if !exists("g:clangformat_on")
-  let g:pluginname_setting=1
+  let g:clangformat_on=1
 endif
 
 function! s:ClangFormat()
@@ -34,6 +34,6 @@ command! -bang ToggleClangFormat call <SID>ToggleClangFormat()
 augroup clang_format
   autocmd!
   "autocmd BufWritePre *.c,*.h :call LanguageClient#textDocument_formatting_sync()
-  autocmd BufWritePre *.c,*.h call <SID>ClangFormat()
+  autocmd BufWritePre *.c,*.h,*.cc call <SID>ClangFormat()
 augroup END
 " }}}
