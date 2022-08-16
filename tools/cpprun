@@ -15,5 +15,12 @@ fi
 CPPFILE="$1"
 shift
 EXEFILE="$(echo "${CPPFILE}" | sed "${EXT_REGEX_OPT}" 's/(.*)\.cc$/\1/')"
-clang++ -std=c++0x  -g -o "${EXEFILE}" "${CPPFILE}"
-"${EXEFILE}" "$@"
+
+if [[ "$1" == "-O"* ]]; then
+  clang++ -std=c++17 "$1" -o ${EXEFILE} ${CPPFILE}
+  shift 1
+  "${EXEFILE}" "$@"
+else
+  clang++ -std=c++17 -g -o "${EXEFILE}" "${CPPFILE}"
+  "${EXEFILE}" "$@"
+fi
