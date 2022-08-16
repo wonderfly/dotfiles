@@ -72,7 +72,7 @@ augroup spellchecks
 augroup END
 
 " Linux Kernel coding style
-let g:linuxsty_patterns = [ "/linux/", "/kernel/" , "/vboot_reference/", "/depthcharge/", "coreboot", "e2fsprogs", "sbsigntools"]
+let g:linuxsty_patterns = [ "/linux/", "/kernel/" , "/vboot_reference/", "/depthcharge/", "coreboot", "e2fsprogs", "sbsigntools", "dmidecode", "flashrom", "zephyr"]
 
 " Disable the following option if you don't like vim's Python style.
 " It comes with /usr/share/vim/vim<version>/ftplugin/python.vim
@@ -211,8 +211,10 @@ Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 let g:go_fmt_command = "goimports" " goimports does BOTH formatting and imports management
 " See additional vim-go configs in vim/ftplugin/go.vim
 
-Plug 'davidhalter/jedi-vim'
-let g:jedi#use_tabs_not_buffers = 0
+"Plug 'davidhalter/jedi-vim'
+" let g:jedi#use_tabs_not_buffers = 0
+" " TODO: add back once debugging is done.
+" let g:jedi#completions_enabled = 0
 
 Plug 'chrisbra/vim-kconfig' " Prettier kernel config files.
 Plug 'vivien/vim-linux-coding-style'  " Linux kernel coding style.
@@ -247,6 +249,11 @@ Plug 'prabirshrestha/vim-lsp'
 Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/asyncomplete-lsp.vim'
 Plug 'mattn/vim-lsp-settings'
+let g:lsp_settings = {
+\  'python-languageserver': {
+\    'disabled': 1,
+\   }
+\}
 
 " Send async completion requests.
 " WARNING: Might interfere with other completion plugins.
