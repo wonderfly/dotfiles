@@ -24,7 +24,8 @@ command! -bang -nargs=* Man :terminal ++close man <args>
 set keywordprg=:Man
 
 syntax on
-colorscheme delek
+"colorscheme delek
+colorscheme delek-legacy
 set number
 set mouse=a
 set pastetoggle=<F9>
