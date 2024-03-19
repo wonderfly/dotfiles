@@ -12,4 +12,5 @@ augroup filetypedetect
   autocmd! BufNewFile,BufRead *.inf,*.fdf,*.dec,*.dsc setfiletype config
   autocmd! BufNewFile,BufRead *.asi,*.asl      setfiletype asl
   autocmd! BufNewFile,BufRead *.hfr            setfiletype hfr
+  autocmd! BufNewFile,BufRead *.c              setfiletype c
 augroup END
