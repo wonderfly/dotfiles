@@ -249,9 +249,11 @@ Plug 'prabirshrestha/async.vim'
 Plug 'prabirshrestha/vim-lsp'
 Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/asyncomplete-lsp.vim'
+" TODO(wonderfly): reenable once I figure out why it doesn't play nicely with
+" the internal Language Server.
 Plug 'mattn/vim-lsp-settings'
 let g:lsp_settings = {
-\  'python-languageserver': {
+\  'pylsp-all': {
 \    'disabled': 1,
 \   }
 \}
