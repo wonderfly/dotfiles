@@ -73,7 +73,7 @@ augroup spellchecks
 augroup END
 
 " Linux Kernel coding style
-let g:linuxsty_patterns = [ "/linux/", "/kernel/" , "/vboot_reference/", "/depthcharge/", "coreboot", "e2fsprogs", "sbsigntools", "dmidecode", "flashrom", "zephyr"]
+let g:linuxsty_patterns = [ "/linux/", "/kernel/" , "/vboot_reference/", "/depthcharge/", "coreboot", "e2fsprogs", "sbsigntools", "dmidecode", "flashrom", "zephyr", "linus-master", "efitools"]
 
 " Disable the following option if you don't like vim's Python style.
 " It comes with /usr/share/vim/vim<version>/ftplugin/python.vim
